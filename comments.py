@@ -9,16 +9,16 @@ def comments():
         all_comments = ""
 
         try:
-            f = open('comments.txt', 'r')
+            f = open('SchuleFlaks/comments.txt', 'r')
             all_comments = f.readlines()
             f.close()
         except:
-            f = open('comments.txt', 'x')
+            f = open('SchuleFlaks/comments.txt', 'x')
             f.close()
 
         return render_template('comments.html', comments=all_comments)
     elif (request.method == 'POST'):
-        f = open("comments.txt", 'a')
+        f = open("SchuleFlaks/comments.txt", 'a')
         f.writelines(request.form['comment'] + "\n")
         f.close()
         return redirect('/comments')
